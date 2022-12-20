@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <project>
-  <executable name="dist/default/production/WeatherStation.X.production.elf">
+  <executable name="dist/default/debug/WeatherStation.X.debug.elf">
     <memory name="data">
       <units>bytes</units>
       <length>16384</length>
@@ -11,8 +11,8 @@
     <memory name="program">
       <units>bytes</units>
       <length>134400</length>
-      <used>50565</used>
-      <free>83835</free>
+      <used>50568</used>
+      <free>83832</free>
     </memory>
   </executable>
 </project>

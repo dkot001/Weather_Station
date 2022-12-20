@@ -49,6 +49,7 @@ limitations under the License.
 #include "demo_config.h"
 #include "wf_common.h"
 #include "../../weather.h"
+#include "../../select_city.h"
 
 #if defined(USING_WEATHER_CLIENT)
 
@@ -190,7 +191,8 @@ static void resolve_cb(char *hostName, uint32_t hostIp)
 static void socket_cb(SOCKET sock, uint8_t message, void *pvMsg)
 {
     /* Check for socket event on TCP socket. */
-    uint8_t uCoords[COORDS_MESS_SIZE] = "latitude=50.09&longitude=19.92";
+    char cCoords[COORDS_MESS_SIZE];
+    strcpy(cCoords, SelectCity());
     
     if (sock == tcp_client_socket) 
     {
@@ -200,7 +202,7 @@ static void socket_cb(SOCKET sock, uint8_t message, void *pvMsg)
             if (s_TcpConnection) 
             {
                 memset(s_ReceivedBuffer, 0, sizeof(s_ReceivedBuffer));
-                sprintf((char *)s_ReceivedBuffer, "%s%s%s", PREFIX_BUFFER, uCoords, POST_BUFFER);
+                sprintf((char *)s_ReceivedBuffer, "%s%s%s", PREFIX_BUFFER, cCoords, POST_BUFFER);
 
                 t_socketConnect *pstrConnect = (t_socketConnect *)pvMsg;
                 if (pstrConnect && pstrConnect->error >= SOCK_ERR_NO_ERROR) 

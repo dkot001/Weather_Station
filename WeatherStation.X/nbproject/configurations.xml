@@ -40,7 +40,8 @@
         <logicalFolder name="Support" displayName="Support" projectFiles="true">
         </logicalFolder>
       </logicalFolder>
-      <itemPath>C:/Users/Ja/Desktop/PIC-IoT/WeatherStation.X/weather.h</itemPath>
+      <itemPath>weather.h</itemPath>
+      <itemPath>select_city.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -104,7 +105,8 @@
         </logicalFolder>
       </logicalFolder>
       <itemPath>main.c</itemPath>
-      <itemPath>C:/Users/Ja/Desktop/PIC-IoT/WeatherStation.X/weather.c</itemPath>
+      <itemPath>weather.c</itemPath>
+      <itemPath>select_city.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -123,7 +125,7 @@
         <targetDevice>PIC24FJ128GA705</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>nEdbgTool</platformTool>
+        <platformTool>Simulator</platformTool>
         <languageToolchain>XC16</languageToolchain>
         <languageToolchainVersion>2.00</languageToolchainVersion>
         <platform>3</platform>
