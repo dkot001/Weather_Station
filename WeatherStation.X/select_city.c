@@ -13,10 +13,6 @@
 #include "string.h"
 #include "wf_common.h"
 
-uint8_t uBlock, uCounter, uButtonValue;
-char cCoords[31];
-char cSelectCoords[31];
-typedef enum List {Krakow, Warszawa, Gdynia, Katowice} Cities;
 Cities City = Krakow;
 
 void SelectCoords(char pcSelectedCoords[]){
@@ -41,7 +37,7 @@ void SelectCoords(char pcSelectedCoords[]){
     }
 }
 
-void PressButtonChooseCity(){
+void PressButtonChooseCity(uint8_t uButtonValue, uint8_t uBlock, uint8_t uCounter){
     if((uButtonValue == 1) && uBlock == 0)
     {
         uBlock = 1;

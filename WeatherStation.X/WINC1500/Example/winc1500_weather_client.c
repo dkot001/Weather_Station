@@ -192,7 +192,6 @@ static void socket_cb(SOCKET sock, uint8_t message, void *pvMsg)
 {
     /* Check for socket event on TCP socket. */
     char cCoords[COORDS_MESS_SIZE];
-    strcpy(cCoords, SelectCity());
     
     if (sock == tcp_client_socket) 
     {

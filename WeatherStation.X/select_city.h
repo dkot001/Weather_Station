@@ -39,9 +39,9 @@
 
 // TODO Insert declarations
 
-enum List {Krakow, Warszawa, Gdynia, Katowice};
+typedef enum List {Krakow, Warszawa, Gdynia, Katowice} Cities;
 
-void SelectCity(char *pcSelectedCoords[]);
+void SelectCity(char pcSelectedCoords[]);
 
 // Comment a function and leverage automatic documentation with slash star star
 /**
