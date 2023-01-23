@@ -43,6 +43,9 @@ limitations under the License.
 //==============================================================================
 
 //-----------------------------------------------------------------------------
+
+uint32_t x;
+
 int main(void)
 {
     SYSTEM_Initialize();
@@ -51,6 +54,6 @@ int main(void)
     while (1) 
     {
         ApplicationTask();
-        m2m_wifi_task();
+        m2m_wifi_task();     
     }
 }

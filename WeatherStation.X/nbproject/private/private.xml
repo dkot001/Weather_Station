@@ -3,11 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Ja/Desktop/PIC-IoT/WeatherStation.X/weather.c</file>
-            <file>file:/C:/Users/Ja/Desktop/PIC-IoT/WeatherStation.X/main.c</file>
-            <file>file:/C:/Users/Ja/Desktop/PIC-IoT/WeatherStation.X/WINC1500/Board_driver/wf_mcu_driver_stub.c</file>
-            <file>file:/C:/Users/Ja/Desktop/PIC-IoT/WeatherStation.X/WINC1500/Example/winc1500_weather_client.c</file>
-            <file>file:/C:/Users/Ja/Desktop/PIC-IoT/WeatherStation.X/weather.h</file>
+            <file>file:/C:/Users/Ja/Desktop/DEAN/Repository/Weather_Station/WeatherStation.X/mcc_generated_files/tmr2.c</file>
+            <file>file:/C:/Users/Ja/Desktop/DEAN/Repository/Weather_Station/WeatherStation.X/WINC1500/Example/winc1500_weather_client.c</file>
+            <file>file:/C:/Users/Ja/Desktop/DEAN/Repository/Weather_Station/WeatherStation.X/mcc_generated_files/mcc.h</file>
+            <file>file:/C:/Users/Ja/Desktop/DEAN/Repository/Weather_Station/WeatherStation.X/main.c</file>
+            <file>file:/C:/Users/Ja/Desktop/DEAN/Repository/Weather_Station/WeatherStation.X/mcc_generated_files/mcc.c</file>
         </group>
     </open-files>
 </project-private>

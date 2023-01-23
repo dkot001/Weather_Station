@@ -167,10 +167,8 @@ void ApplicationTask(void)
         }
         break;
 
-    case APP_STATE_WORKING:       
-            
-        break;
-        
+    case APP_STATE_WORKING:              
+        break;  
     case APP_STATE_DONE:
         break;
     default:
@@ -286,4 +284,12 @@ static void wifi_cb(uint8_t msgType, void *pvMsg)
     }
 }
 
+void NewConnection(void)
+{
+    if(GetAppState() == APP_STATE_WORKING){
+        s_HostIpByName = false;
+        gethostbyname((const char *)WEATHER_SERVER_NAME);
+        SetAppState(APP_STATE_WAIT_CONNECT_AND_DHCP);
+    }
+}
 #endif

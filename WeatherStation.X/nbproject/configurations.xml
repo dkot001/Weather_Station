@@ -13,6 +13,7 @@
         <itemPath>mcc_generated_files/tmr1.h</itemPath>
         <itemPath>mcc_generated_files/traps.h</itemPath>
         <itemPath>mcc_generated_files/uart2.h</itemPath>
+        <itemPath>C:/Users/Ja/Desktop/DEAN/Repository/Weather_Station/WeatherStation.X/mcc_generated_files/tmr2.h</itemPath>
       </logicalFolder>
       <logicalFolder name="WINC1500" displayName="WINC1500" projectFiles="true">
         <logicalFolder name="Common" displayName="Common" projectFiles="true">
@@ -40,7 +41,7 @@
         <logicalFolder name="Support" displayName="Support" projectFiles="true">
         </logicalFolder>
       </logicalFolder>
-      <itemPath>C:/Users/Ja/Desktop/PIC-IoT/WeatherStation.X/weather.h</itemPath>
+      <itemPath>C:/Users/Ja/Desktop/DEAN/Repository/Weather_Station/WeatherStation.X/weather.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -58,6 +59,8 @@
         <itemPath>mcc_generated_files/tmr1.c</itemPath>
         <itemPath>mcc_generated_files/traps.c</itemPath>
         <itemPath>mcc_generated_files/uart2.c</itemPath>
+        <itemPath>C:/Users/Ja/Desktop/DEAN/Repository/Weather_Station/WeatherStation.X/weather.c</itemPath>
+        <itemPath>C:/Users/Ja/Desktop/DEAN/Repository/Weather_Station/WeatherStation.X/mcc_generated_files/tmr2.c</itemPath>
       </logicalFolder>
       <logicalFolder name="WINC1500" displayName="WINC1500" projectFiles="true">
         <logicalFolder name="Board_driver"
@@ -104,12 +107,12 @@
         </logicalFolder>
       </logicalFolder>
       <itemPath>main.c</itemPath>
-      <itemPath>C:/Users/Ja/Desktop/PIC-IoT/WeatherStation.X/weather.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
                    projectFiles="false">
       <itemPath>Makefile</itemPath>
+      <itemPath>WeatherStation.mc3</itemPath>
     </logicalFolder>
   </logicalFolder>
   <sourceRootList>
