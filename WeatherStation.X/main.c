@@ -33,6 +33,8 @@ limitations under the License.
 #include "winc1500_api.h"   // primary WINC1500 include file
 #include "demo_config.h"    // selects which demo to run
 #include "mcc.h"            // defines for LED's and push buttons on board
+#include "select_city.h"
+#include "weather.h"
 #include <xc.h>    
 //==============================================================================
 // FUNCTION PROTOTYPES
@@ -43,6 +45,11 @@ limitations under the License.
 //==============================================================================
 
 //-----------------------------------------------------------------------------
+
+uint32_t x;
+uint8_t uCounter, uBlock;
+extern Location_data currentCoords;
+
 int main(void)
 {
     SYSTEM_Initialize();
@@ -50,7 +57,9 @@ int main(void)
 
     while (1) 
     {
+        PressButtonChooseCity(uBlock, uCounter, currentCoords.cCoords);
         ApplicationTask();
         m2m_wifi_task();
+        uBlock = 0;
     }
 }

@@ -52,7 +52,7 @@
 */
 #include <xc.h>
 
-
+#define BUTTON_0_GetValue()         _RA7
 #define LED_BLUE_Toggle()           _LATC5 ^= 1
 #define LED_BLUE_SetDigitalOutput() _TRISC5 = 0
  

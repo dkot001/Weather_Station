@@ -148,6 +148,7 @@ void SYSTEM_Initialize(void)
     UART2_Initialize();
     EXT_INT_Initialize();
     TMR1_Initialize();
+    TMR2_Initialize();
 }
 
 void OSCILLATOR_Initialize(void)

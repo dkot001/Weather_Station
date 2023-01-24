@@ -88,6 +88,7 @@ typedef enum
     APP_STATE_DONE
 } t_AppState;
 
+Location_data currentCoords;
 WeatherData currentWeather;
 t_AppState g_appState = APP_STATE_WAIT_FOR_DRIVER_INIT;
 static uint8_t s_ReceivedBuffer[WIFI_BUFFER_SIZE] = {0}; // Receive buffer
@@ -102,6 +103,7 @@ static char g_ssid[] = {WLAN_SSID};
 static void wifi_cb(uint8_t msgType, void *pvMsg);
 static void socket_cb(SOCKET sock, uint8_t message, void *pvMsg);
 static void resolve_cb(char *pu8DomainName, uint32_t serverIP);
+
 
 void ApplicationTask(void)
 {
@@ -168,10 +170,8 @@ void ApplicationTask(void)
         }
         break;
 
-    case APP_STATE_WORKING:       
-            
-        break;
-        
+    case APP_STATE_WORKING:              
+        break;  
     case APP_STATE_DONE:
         break;
     default:
@@ -191,7 +191,6 @@ static void resolve_cb(char *hostName, uint32_t hostIp)
 static void socket_cb(SOCKET sock, uint8_t message, void *pvMsg)
 {
     /* Check for socket event on TCP socket. */
-    char cCoords[COORDS_MESS_SIZE];
     
     if (sock == tcp_client_socket) 
     {
@@ -201,7 +200,7 @@ static void socket_cb(SOCKET sock, uint8_t message, void *pvMsg)
             if (s_TcpConnection) 
             {
                 memset(s_ReceivedBuffer, 0, sizeof(s_ReceivedBuffer));
-                sprintf((char *)s_ReceivedBuffer, "%s%s%s", PREFIX_BUFFER, cCoords, POST_BUFFER);
+                sprintf((char *)s_ReceivedBuffer, "%s%s%s", PREFIX_BUFFER, currentCoords.cCoords, POST_BUFFER);
 
                 t_socketConnect *pstrConnect = (t_socketConnect *)pvMsg;
                 if (pstrConnect && pstrConnect->error >= SOCK_ERR_NO_ERROR) 
@@ -287,4 +286,12 @@ static void wifi_cb(uint8_t msgType, void *pvMsg)
     }
 }
 
+void NewConnection(void)
+{
+    if(GetAppState() == APP_STATE_WORKING){
+        s_HostIpByName = false;
+        gethostbyname((const char *)WEATHER_SERVER_NAME);
+        SetAppState(APP_STATE_WAIT_CONNECT_AND_DHCP);
+    }
+}
 #endif

@@ -41,6 +41,7 @@ typedef struct{
     char* timezone;
     char* timezone_abbreviation;
     char* elevation;
+    char cCoords[31];
 }Location_data;
 
 typedef struct{

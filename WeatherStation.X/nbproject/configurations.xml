@@ -13,6 +13,9 @@
         <itemPath>mcc_generated_files/tmr1.h</itemPath>
         <itemPath>mcc_generated_files/traps.h</itemPath>
         <itemPath>mcc_generated_files/uart2.h</itemPath>
+        <itemPath>weather.h</itemPath>
+        <itemPath>mcc_generated_files/tmr2.h</itemPath>
+        <itemPath>C:/Users/ADAM/Downloads/Weather_Station-dev/Weather_Station-dev/WeatherStation.X/select_city.h</itemPath>
       </logicalFolder>
       <logicalFolder name="WINC1500" displayName="WINC1500" projectFiles="true">
         <logicalFolder name="Common" displayName="Common" projectFiles="true">
@@ -40,8 +43,6 @@
         <logicalFolder name="Support" displayName="Support" projectFiles="true">
         </logicalFolder>
       </logicalFolder>
-      <itemPath>weather.h</itemPath>
-      <itemPath>select_city.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -59,6 +60,9 @@
         <itemPath>mcc_generated_files/tmr1.c</itemPath>
         <itemPath>mcc_generated_files/traps.c</itemPath>
         <itemPath>mcc_generated_files/uart2.c</itemPath>
+        <itemPath>weather.c</itemPath>
+        <itemPath>mcc_generated_files/tmr2.c</itemPath>
+        <itemPath>C:/Users/ADAM/Downloads/Weather_Station-dev/Weather_Station-dev/WeatherStation.X/select_city.c</itemPath>
       </logicalFolder>
       <logicalFolder name="WINC1500" displayName="WINC1500" projectFiles="true">
         <logicalFolder name="Board_driver"
@@ -105,13 +109,12 @@
         </logicalFolder>
       </logicalFolder>
       <itemPath>main.c</itemPath>
-      <itemPath>weather.c</itemPath>
-      <itemPath>select_city.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
                    projectFiles="false">
       <itemPath>Makefile</itemPath>
+      <itemPath>WeatherStation.mc3</itemPath>
     </logicalFolder>
   </logicalFolder>
   <sourceRootList>
@@ -125,7 +128,7 @@
         <targetDevice>PIC24FJ128GA705</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>Simulator</platformTool>
+        <platformTool>nEdbgTool</platformTool>
         <languageToolchain>XC16</languageToolchain>
         <languageToolchainVersion>2.00</languageToolchainVersion>
         <platform>3</platform>
