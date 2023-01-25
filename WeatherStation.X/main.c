@@ -45,10 +45,7 @@ limitations under the License.
 //==============================================================================
 
 //-----------------------------------------------------------------------------
-
-uint32_t x;
-uint8_t uCounter, uBlock;
-extern Location_data currentCoords;
+Location_data currentCoords;
 
 int main(void)
 {
@@ -57,9 +54,18 @@ int main(void)
 
     while (1) 
     {
-        PressButtonChooseCity(uBlock, uCounter, currentCoords.cCoords);
         ApplicationTask();
         m2m_wifi_task();
-        uBlock = 0;
+        currentCoords.coords_string = PressButtonChooseCity();
+        
+//        if (PORTCbits.RC6 == 0)
+//        {
+//            _RB4 = 0;
+//        }
+//        else
+//        {
+//            _RB4 = 1;
+//        }
     }
 }
+

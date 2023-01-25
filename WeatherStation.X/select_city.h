@@ -42,7 +42,7 @@
 typedef enum List {Krakow, Warszawa, Gdynia, Katowice} Cities;
 
 
-void PressButtonChooseCity(uint8_t uBlock, uint8_t uCounter, char pcSelectedCoords[]);
+char* PressButtonChooseCity(void);
 // Comment a function and leverage automatic documentation with slash star star
 /**
     <p><b>Function prototype:</b></p>

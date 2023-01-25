@@ -10,45 +10,50 @@
 #include "select_city.h"
 #include "winc1500_api.h"
 #include "demo_config.h"
-#include "string.h"
 #include "wf_common.h"
 #include "mcc_generated_files/pin_manager.h"
+#include "string_copy.h"
 
 Cities City;
+static uint8_t uCounter = 0;
+static bool uBlock;
+static char* buffor = "latitude=50.04&longitude=19.94"; //cracow default
 
-void PressButtonChooseCity(uint8_t uBlock, uint8_t uCounter, char pcSelectedCoords[]){
-    if((BUTTON_0_GetValue() == 1) && uBlock == 0)
+char* PressButtonChooseCity(void){
+
+    if( (PORTCbits.RC6 == 0) && (uBlock == false) )
     {
-        uBlock = 1;
+        uBlock = true;
         uCounter++;
         uCounter = uCounter % 4;
         switch(uCounter)
         {
             case 0:
                 City = Krakow;
-                strcpy(pcSelectedCoords, "latitude=50.04&longitude=19.94");
-                NewConnection();
+                buffor = "latitude=50.04&longitude=19.94";
                 break;
             case 1:
                 City = Warszawa;
-                strcpy(pcSelectedCoords, "latitude=52.23&longitude=21.01");
-                NewConnection();
+                buffor = "latitude=52.23&longitude=21.01";
                 break;
             case 2:
                 City = Gdynia;
-                strcpy(pcSelectedCoords, "latitude=54.32&longitude=18.34");
-                NewConnection();
+                buffor = "latitude=54.32&longitude=18.34";   
                 break;
             case 3:
                 City = Katowice;
-                strcpy(pcSelectedCoords, "latitude=50.15&longitude=19.01");
-                NewConnection();
+                buffor = "latitude=50.15&longitude=19.01"; 
                 break;
             default:
                 City = Krakow;
-                strcpy(pcSelectedCoords, "latitude=50.04&longitude=19.94");
-                NewConnection();
+                buffor = "latitude=50.04&longitude=19.94"; 
                 break;
         }
+        NewConnection();
     }
+    else if(PORTCbits.RC6 == 1)
+    {
+        uBlock = false;
+    }
+    return buffor;
 }

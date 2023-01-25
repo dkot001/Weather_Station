@@ -221,7 +221,8 @@ void decodeMessage(char *message, WeatherData wData)
             *pcEndPtr = 0;
         }
         wData.weather.current_time.hour = pcIndxPtr;
-        printf("CurrentHour: %s\r\n", wData.weather.current_time.hour); 
+        printf("CurrentHour: %s\r\n\n", wData.weather.current_time.hour); 
+        printf("---------------------------------------------------------\r\n");
         
     } 
     else 

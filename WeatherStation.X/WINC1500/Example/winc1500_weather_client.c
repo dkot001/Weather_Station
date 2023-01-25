@@ -58,9 +58,9 @@ limitations under the License.
 //==============================================================================
 
 /** Wi-Fi AP Settings. */
-#define WLAN_SSID              "5G Pfizer Wieliczka 500% mocy"             // target AP
+#define WLAN_SSID              "CBOwK"             // target AP
 #define WLAN_AUTH              M2M_WIFI_SEC_WPA_PSK   // AP Security 
-#define WLAN_PSK               "Galoistheory69"            // security password
+#define WLAN_PSK               "Husky12345"            // security password
 
 #define WIFI_BUFFER_SIZE       1400                  // Receive buffer size.
 #define SERVER_PORT            (80)                  // Using broadcast address for simplicity
@@ -88,9 +88,10 @@ typedef enum
     APP_STATE_DONE
 } t_AppState;
 
-Location_data currentCoords;
+extern Location_data currentCoords;
 WeatherData currentWeather;
 t_AppState g_appState = APP_STATE_WAIT_FOR_DRIVER_INIT;
+
 static uint8_t s_ReceivedBuffer[WIFI_BUFFER_SIZE] = {0}; // Receive buffer
 static SOCKET tcp_client_socket = -1; // TCP client socket handlers
 static struct sockaddr_in addr_in;
@@ -99,7 +100,7 @@ static bool s_ConnectedWifi = false;  // Wi-Fi status
 static bool s_HostIpByName = false;   // host IP status
 static bool s_TcpConnection = false;  // TCP Connection status
 static char g_ssid[] = {WLAN_SSID}; 
-
+static uint8_t firstAttempt = true;  
 static void wifi_cb(uint8_t msgType, void *pvMsg);
 static void socket_cb(SOCKET sock, uint8_t message, void *pvMsg);
 static void resolve_cb(char *pu8DomainName, uint32_t serverIP);
@@ -183,9 +184,11 @@ static void resolve_cb(char *hostName, uint32_t hostIp)
 {
     s_HostIp = hostIp;
     s_HostIpByName = true;
+    if (firstAttempt == true){
     printf("%s IP address is %d.%d.%d.%d\r\n\r\n", hostName,
             (int)IPV4_BYTE(hostIp, 0), (int)IPV4_BYTE(hostIp, 1),
             (int)IPV4_BYTE(hostIp, 2), (int)IPV4_BYTE(hostIp, 3));
+    }
 }
 
 static void socket_cb(SOCKET sock, uint8_t message, void *pvMsg)
@@ -197,10 +200,15 @@ static void socket_cb(SOCKET sock, uint8_t message, void *pvMsg)
         switch (message) {
         case M2M_SOCKET_CONNECT_EVENT:
         {
+            if (firstAttempt == true)
+            {
+                currentCoords.coords_string = "latitude=50.04&longitude=19.94";
+                firstAttempt = false;
+            }
             if (s_TcpConnection) 
             {
                 memset(s_ReceivedBuffer, 0, sizeof(s_ReceivedBuffer));
-                sprintf((char *)s_ReceivedBuffer, "%s%s%s", PREFIX_BUFFER, currentCoords.cCoords, POST_BUFFER);
+                sprintf((char *)s_ReceivedBuffer, "%s%s%s", PREFIX_BUFFER, currentCoords.coords_string, POST_BUFFER);
 
                 t_socketConnect *pstrConnect = (t_socketConnect *)pvMsg;
                 if (pstrConnect && pstrConnect->error >= SOCK_ERR_NO_ERROR) 
@@ -211,7 +219,7 @@ static void socket_cb(SOCKET sock, uint8_t message, void *pvMsg)
                 } 
                 else 
                 {
-                    printf("connect error!\r\n");
+                    //printf("connect error!\r\n");
                     s_TcpConnection = false;
                     close(tcp_client_socket);
                     tcp_client_socket = -1;

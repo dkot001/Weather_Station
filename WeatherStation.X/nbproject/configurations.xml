@@ -15,7 +15,8 @@
         <itemPath>mcc_generated_files/uart2.h</itemPath>
         <itemPath>weather.h</itemPath>
         <itemPath>mcc_generated_files/tmr2.h</itemPath>
-        <itemPath>C:/Users/ADAM/Downloads/Weather_Station-dev/Weather_Station-dev/WeatherStation.X/select_city.h</itemPath>
+        <itemPath>C:/Users/Ja/Downloads/Hubert/Hubert/Weather_Station/WeatherStation.X/select_city.h</itemPath>
+        <itemPath>C:/Users/Ja/Downloads/Hubert/Hubert/Weather_Station/WeatherStation.X/string_copy.h</itemPath>
       </logicalFolder>
       <logicalFolder name="WINC1500" displayName="WINC1500" projectFiles="true">
         <logicalFolder name="Common" displayName="Common" projectFiles="true">
@@ -62,7 +63,8 @@
         <itemPath>mcc_generated_files/uart2.c</itemPath>
         <itemPath>weather.c</itemPath>
         <itemPath>mcc_generated_files/tmr2.c</itemPath>
-        <itemPath>C:/Users/ADAM/Downloads/Weather_Station-dev/Weather_Station-dev/WeatherStation.X/select_city.c</itemPath>
+        <itemPath>select_city.c</itemPath>
+        <itemPath>C:/Users/Ja/Downloads/Hubert/Hubert/Weather_Station/WeatherStation.X/string_copy.c</itemPath>
       </logicalFolder>
       <logicalFolder name="WINC1500" displayName="WINC1500" projectFiles="true">
         <logicalFolder name="Board_driver"
