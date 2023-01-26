@@ -214,13 +214,13 @@ void m2m_wifi_console_write_data(uint16_t length, uint8_t *p_buf)
     
     for (i = 0; i < length; ++i)
     {
-        UART2_Write(p_buf[i]);
+        UART1_Write(p_buf[i]);
     }
 }
 
 uint8_t m2m_wifi_console_read_data(void)
 {
-    return UART2_Read();
+    return UART1_Read();
 }
 
 bool m2m_wifi_console_is_read_data(void)

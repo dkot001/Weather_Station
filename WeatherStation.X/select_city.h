@@ -39,7 +39,9 @@
 
 // TODO Insert declarations
 
-typedef enum List {Krakow, Warszawa, Gdynia, Katowice} Cities;
+#define BUTTON PORTAbits.RA7
+
+typedef enum List {Krakow, Warszawa, Gdynia, Katowice, Obecna_lokalizacja} Cities;
 
 
 char* PressButtonChooseCity(void);

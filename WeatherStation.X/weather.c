@@ -10,8 +10,12 @@
 #include "winc1500_api.h"
 #include "demo_config.h"
 #include "wf_common.h"
+#include "select_city.h"
 
 #define numOfCodes 28
+
+extern Cities City;
+extern Location_data currentCoords;
 
 char *codeTab[numOfCodes] = {"0", "1", "2", "3", "45", "48", "51", "53", "55", "56", "57", "61", "63", "65", "66", "67", "71", "73", "75", "77", "80", "81", "82", "85", "86", "95", "96", "99"};
 char *stringTab[numOfCodes + 1] = {"Clear Sky","Mainly Clear","Partly Cloudy","Overcast","Fog","Depositing Rime Fog","Light Drizzle","Moderate Drizzle","Heavy Drizzle","Light Freezing Drizzle","Heavy Freezing Drizzle","Slight Rain","Moderate Rain","Heavy Rain","Light Freezing Rain", "Heavy Freezing Rain","Slight Snow Fall","Moderate Snow Fall","Heavy Snow Fall","Snow Grains","Slight Rain Showers","Moderate Rain Showers","Violent Rain Showers","Slight Snow Showers","Heavy Snow Showers","Thunderstorm","Thunderstorm with Slight Hail","Thunderstorm with Heavy Hail","Unknown"};
@@ -32,6 +36,25 @@ void decodeMessage(char *message, WeatherData wData)
 {
     char *pcIndxPtr;
     char *pcEndPtr;
+    
+    switch (City){
+        case Krakow:
+            printf("Pogoda dla Krakowa\r\n");
+            break;
+                case Warszawa:
+            printf("Pogoda dla Warszawy\r\n");
+            break;
+                case Gdynia:
+            printf("Pogoda dla Gdyni\r\n");
+            break;
+                case Katowice:
+            printf("Pogoda dla Katowic\r\n");
+            break;
+                default:
+            printf("Pogoda dla Krakowa\r\n");
+            break;
+        
+    }
     
     pcIndxPtr = strstr(message, "\"latitude\":");
     if (NULL != pcIndxPtr) 

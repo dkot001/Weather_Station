@@ -35,7 +35,45 @@ limitations under the License.
 #include "mcc.h"            // defines for LED's and push buttons on board
 #include "select_city.h"
 #include "weather.h"
-#include <xc.h>    
+#include <xc.h>   
+#include "gps.h"
+
+
+t_Gps gps_test;
+t_Gps *gps_tt = &gps_test;
+
+char c='0'; //declare a character
+char Rdata[BUFFER_LENGTH];
+char *Rcopy = &Rdata[0];//declare a character array to store an entire message
+int count = BUFFER_LENGTH;
+int uartgo = 0;
+int message_ready = 0;
+
+void gps_received_handler(void){
+    
+    
+    c = UART2_Read();
+    if(c == '$') //c == $, hex=0x0024
+    {           
+        count = 0;
+        uartgo = 1;
+        message_ready = 0;
+        //for indexing the character array
+    }
+    if((uartgo == 1)&&(BUFFER_LENGTH))
+    {
+        Rdata[count] = c;//store the character into the data array
+        count++; 
+        message_ready = 0;//increment the index
+    }
+    else if(count >= BUFFER_LENGTH)
+    {
+        count = 0;
+        uartgo = 0;
+        message_ready = 1;   
+    }   
+}
+
 //==============================================================================
 // FUNCTION PROTOTYPES
 //==============================================================================    
@@ -51,12 +89,21 @@ int main(void)
 {
     SYSTEM_Initialize();
     m2m_wifi_init();
+    gps_init();
+    UART2_SetRxInterruptHandler(&gps_received_handler);
 
     while (1) 
     {
         ApplicationTask();
         m2m_wifi_task();
         currentCoords.coords_string = PressButtonChooseCity();
+        if(message_ready == 1){
+            
+            printf("%s\r\n",Rcopy);
+            gps_parse(Rcopy,58, gps_tt);   
+        }
+        
+       
         
 //        if (PORTCbits.RC6 == 0)
 //        {

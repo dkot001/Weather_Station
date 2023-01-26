@@ -76,7 +76,9 @@ void PIN_MANAGER_Initialize (void)
     TRISA = 0x7E93;
     TRISB = 0xFFEF;
     TRISC = 0x02C0;
-    TRISCbits.TRISC6 = 1;
+    TRISAbits.TRISA7 = 1;
+    TRISBbits.TRISB5 = 0;
+    TRISBbits.TRISB5 = 1;
 
     /****************************************************************************
      * Setting the Weak Pull Up and Weak Pull Down SFR(s)
@@ -114,6 +116,9 @@ void PIN_MANAGER_Initialize (void)
     RPINR18bits.U1RXR = 0x0019;    //RC9->UART1:U1RX
     RPOR8bits.RP16R = 0x0007;    //RC0->SPI1:SDO1
     RPOR9bits.RP18R = 0x0008;    //RC2->SPI1:SCK1OUT
+    
+    RPINR19bits.U2RXR = 0x0006;    //RB6->UART2:U2RX
+    RPOR2bits.RP5R = 0x0005;    //RB5->UART2:U2TX
 
     //input
 	RPINR19bits.U2RXR=	6;			// UART2- RX,	RP6- MODBUS2		

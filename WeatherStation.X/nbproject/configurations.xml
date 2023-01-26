@@ -12,11 +12,12 @@
         <itemPath>mcc_generated_files/pin_manager.h</itemPath>
         <itemPath>mcc_generated_files/tmr1.h</itemPath>
         <itemPath>mcc_generated_files/traps.h</itemPath>
-        <itemPath>mcc_generated_files/uart2.h</itemPath>
         <itemPath>weather.h</itemPath>
         <itemPath>mcc_generated_files/tmr2.h</itemPath>
-        <itemPath>C:/Users/Ja/Downloads/Hubert/Hubert/Weather_Station/WeatherStation.X/select_city.h</itemPath>
-        <itemPath>C:/Users/Ja/Downloads/Hubert/Hubert/Weather_Station/WeatherStation.X/string_copy.h</itemPath>
+        <itemPath>select_city.h</itemPath>
+        <itemPath>mcc_generated_files/uart1.h</itemPath>
+        <itemPath>gps.h</itemPath>
+        <itemPath>uart2.h</itemPath>
       </logicalFolder>
       <logicalFolder name="WINC1500" displayName="WINC1500" projectFiles="true">
         <logicalFolder name="Common" displayName="Common" projectFiles="true">
@@ -60,11 +61,11 @@
         <itemPath>mcc_generated_files/pin_manager.c</itemPath>
         <itemPath>mcc_generated_files/tmr1.c</itemPath>
         <itemPath>mcc_generated_files/traps.c</itemPath>
-        <itemPath>mcc_generated_files/uart2.c</itemPath>
         <itemPath>weather.c</itemPath>
         <itemPath>mcc_generated_files/tmr2.c</itemPath>
         <itemPath>select_city.c</itemPath>
-        <itemPath>C:/Users/Ja/Downloads/Hubert/Hubert/Weather_Station/WeatherStation.X/string_copy.c</itemPath>
+        <itemPath>string_copy.c</itemPath>
+        <itemPath>mcc_generated_files/uart1.c</itemPath>
       </logicalFolder>
       <logicalFolder name="WINC1500" displayName="WINC1500" projectFiles="true">
         <logicalFolder name="Board_driver"
@@ -111,6 +112,8 @@
         </logicalFolder>
       </logicalFolder>
       <itemPath>main.c</itemPath>
+      <itemPath>gps.c</itemPath>
+      <itemPath>uart2.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

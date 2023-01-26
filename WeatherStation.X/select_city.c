@@ -13,6 +13,7 @@
 #include "wf_common.h"
 #include "mcc_generated_files/pin_manager.h"
 #include "string_copy.h"
+#include "gps.h"
 
 Cities City;
 static uint8_t uCounter = 0;
@@ -21,7 +22,7 @@ static char* buffor = "latitude=50.04&longitude=19.94"; //cracow default
 
 char* PressButtonChooseCity(void){
 
-    if( (PORTCbits.RC6 == 0) && (uBlock == false) )
+    if( (BUTTON == 0) && (uBlock == false) )
     {
         uBlock = true;
         uCounter++;
@@ -51,7 +52,7 @@ char* PressButtonChooseCity(void){
         }
         NewConnection();
     }
-    else if(PORTCbits.RC6 == 1)
+    else if(BUTTON == 1)
     {
         uBlock = false;
     }

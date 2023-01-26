@@ -50,7 +50,7 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include "ext_int.h"
-#include "uart2.h"
+#include "uart1.h"
 #include "traps.h"
 #include "interrupt_manager.h"
 #include "tmr1.h"

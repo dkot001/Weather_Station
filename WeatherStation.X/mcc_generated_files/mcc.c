@@ -145,7 +145,7 @@ void SYSTEM_Initialize(void)
     PIN_MANAGER_Initialize();
     OSCILLATOR_Initialize();
     INTERRUPT_Initialize();
-    UART2_Initialize();
+    UART1_Initialize();
     EXT_INT_Initialize();
     TMR1_Initialize();
     TMR2_Initialize();
